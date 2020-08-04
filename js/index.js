@@ -1,3 +1,5 @@
+import gsap from "gsap";
+
 //Stop the navigation items from refreshing the page.
 const navElements = document.querySelectorAll('nav a');
 navElements.forEach(el => {
@@ -12,7 +14,7 @@ function rndColor() {
                 + Math.floor(Math.random() * 256) + ')'
 }
 function rndBackground(event) {
-  return event.currentTarget.style['background-color'] = rndColor();
+  return gsap.to(event.currentTarget, {['background-color']: rndColor()});
 }
 //Nest two similar events somewhere in the site and prevent the event propagation properly. Remember not all event types bubble.
 const body = document.querySelector('body');
